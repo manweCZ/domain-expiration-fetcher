@@ -49,7 +49,7 @@ class DomainExpirationFetcher
         }
 
         $tld = ucfirst($tld);
-        $className = 'BiteIT\\Utils\\WhoisParsers\\'.$tld.'WhoisInfoParser';
+        $className = 'BiteIT\\Utils\\Parsers\\'.$tld.'WhoisInfoParser';
         if(!class_exists($className))
         {
             if (file_exists(__DIR__ . '/whois-parsers/' . $tld . 'WhoisInfoParser.php'))
