@@ -15,13 +15,10 @@ class GeneralWhoisInfoParser extends WhoisInfoParser
             return null;
 
         preg_match_all('/(expir|valid|renew|paid\-till).*?:\s*([^\n]+)/i', $text, $matches);
-        vd($text);
-
 
         if($matches){
             if(is_array($matches[2])){
                 foreach ($matches[0] as $i => $text){
-                    vd($text);
                     if(stripos($text, 'date') !== false)
                         return new \DateTime( $matches[2][$i] );
                 }
@@ -30,9 +27,6 @@ class GeneralWhoisInfoParser extends WhoisInfoParser
             }
 
             return new \DateTime( $matches[2] );
-        }
-        else{
-            vd($text);
         }
 
         return null;

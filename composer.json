@@ -2,7 +2,7 @@
   "name": "biteit/domain-expiration-fetcher",
   "description": "Fetches Domain Expiration date from WHOIS servers",
   "minimum-stability": "stable",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "authors": [
     {
