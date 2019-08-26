@@ -52,9 +52,9 @@ class DomainExpirationFetcher
         $className = 'BiteIT\\Utils\\Parsers\\'.$tld.'WhoisInfoParser';
         if(!class_exists($className))
         {
-            if (file_exists(__DIR__ . '/whois-parsers/' . $tld . 'WhoisInfoParser.php'))
+            if (file_exists(__DIR__ . '/Parsers' . $tld . 'WhoisInfoParser.php'))
             {
-                require_once __DIR__ . '/whois-parsers/' . $tld . 'WhoisInfoParser.php';
+                require_once __DIR__ . '/Parsers' . $tld . 'WhoisInfoParser.php';
             }
         }
 
