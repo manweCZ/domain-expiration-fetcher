@@ -1,0 +1,22 @@
+{
+  "name": "biteit/domain-expiration-fetcher",
+  "description": "Fetches Domain Expiration date from WHOIS servers",
+  "minimum-stability": "dev",
+  "version": "0.1.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Radek Boszczyk",
+      "email": "radek@biteit.cz"
+    }
+  ],
+  "require": {
+    "io-developer/php-whois": "^3.4",
+    "php": ">=7.1.0",
+  },
+  "autoload": {
+      "psr-0": {
+          "BiteIT": "src/"
+      }
+  }
+}
