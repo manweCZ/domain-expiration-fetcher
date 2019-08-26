@@ -3,7 +3,7 @@
  * User: Manwe
  */
 
-namespace BiteIT\Utils\WhoisParsers;
+namespace BiteIT\Utils\Parsers;
 
 
 abstract class WhoisInfoParser

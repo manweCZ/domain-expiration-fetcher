@@ -5,8 +5,8 @@
 
 namespace BiteIT\Utils;
 
-use BiteIT\Utils\WhoisParsers\GeneralWhoisInfoParser;
-use BiteIT\Utils\WhoisParsers\WhoisInfoParser;
+use BiteIT\Utils\Parsers\GeneralWhoisInfoParser;
+use BiteIT\Utils\Parsers\WhoisInfoParser;
 use Iodev\Whois\Modules\Tld\Parsers\CommonParser;
 use Iodev\Whois\Modules\Tld\TldServer;
 use Iodev\Whois\Whois;
@@ -43,7 +43,7 @@ class DomainExpirationFetcher
     protected function loadParser($tld = null){
         if(!$tld)
         {
-            require_once __DIR__ . '/whois-parsers/GeneralWhoisInfoParser.php';
+            require_once __DIR__ . '/parsers/GeneralWhoisInfoParser.php';
             $this->parsers['_default'] = new GeneralWhoisInfoParser();
             return true;
         }
