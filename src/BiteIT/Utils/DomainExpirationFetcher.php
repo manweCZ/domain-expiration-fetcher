@@ -20,7 +20,7 @@ class DomainExpirationFetcher
                                 'be', 'lu', 'lv', 'ph', 'no', 'name', 'kz', 'ge', 'az'];
 
     public function canFetchInfoAbout($tld){
-        return in_array($tld, static::TLDS_WITH_NO_INFO);
+        return !in_array($tld, static::TLDS_WITH_NO_INFO);
     }
 
     public function __construct(){
