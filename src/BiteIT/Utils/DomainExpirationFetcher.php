@@ -43,7 +43,7 @@ class DomainExpirationFetcher
     protected function loadParser($tld = null){
         if(!$tld)
         {
-            require_once __DIR__ . '/parsers/GeneralWhoisInfoParser.php';
+            require_once __DIR__ . '/Parsers/GeneralWhoisInfoParser.php';
             $this->parsers['_default'] = new GeneralWhoisInfoParser();
             return true;
         }
