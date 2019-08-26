@@ -16,8 +16,8 @@ class DomainExpirationFetcher
     protected $whois;
     protected $parsers = [];
 
-    const TLDS_WITH_NO_INFO = ['de', 'eu', 'at', 'bg', 'cy', 'es', 'gr', 'hu', 'ch', 'be', 'lu', 'lv', 'ph', 'no', 'name', 'kz', 'ge',
-                        'az'];
+    const TLDS_WITH_NO_INFO = ['de', 'eu', 'at', 'bg', 'cy', 'es', 'gr', 'hu', 'ch',
+                                'be', 'lu', 'lv', 'ph', 'no', 'name', 'kz', 'ge', 'az'];
 
     public function canFetchInfoAbout($tld){
         return in_array($tld, static::TLDS_WITH_NO_INFO);

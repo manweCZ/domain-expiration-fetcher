@@ -1,28 +1,21 @@
-Quick integration for Tracy Debugging panel for Slack.
+Fetches Domain Expiration information from WHOIS servers
 
-**Installation:**
-1. Create a webhook integration for you Slack team here: https://my.slack.com/services/new/incoming-webhook/
-2. Initialize TracySlackLogger
+**Usage:**
 
 ```php
-$logger = new \BiteIT\TracySlackLogger('YOUR_HOOK_URL');
-\Tracy\Debugger::$productionMode = true;
-\Tracy\Debugger::setLogger( $logger );
+$ds = new \BiteIT\Utils\DomainExpirationFetcher();
+if($ds->canFetchInfoAbout('com'){
+    $date = $ds->fetchExpirationDate($domain);
+    var_dump($date);
+}
 ```
 
-Now whenever an error or exception occures on your website, your selected Slack Channel will be notified.
+There are certain WHOIS servers that do not publish expiration dates, they are specified in DomainExpirationFetcher::TLDS_WITH_NO_INFO, and as of this date I found out these are the TLDs:
+'de', 'eu', 'at', 'bg', 'cy', 'es', 'gr', 'hu', 'ch',
+                                'be', 'lu', 'lv', 'ph', 'no', 'name', 'kz', 'ge', 'az' 
 
-If you want to customize what log priorities should be notified to your Slack Channel, use the method
+If you want to customize any parser or add your own, check WhoisInfoParser.php abstract class and its implementation in whois-parsers folders.
+You can then set the parser by using
 ```php
-$logger->setReportingLevels( [ ILogger::INFO ] );
-```
-
-If you want to report ALL priorities, use an empty array for the method.
-By default, the TracySlackLogger notifies `ILogger::ERROR`, `ILogger::CRITICAL` and `ILogger::EXCEPTION` errors. 
-
-If you want to enable or disable advanced information in slack message you can use these methods.
-
-```php
-$logger->setEnabledMessageData([\BiteIT\TracySlackLogger::MESSAGE_ALL]);
-$logger->setDisabledMessageData(\BiteIT\TracySlackLogger::MESSAGE_IP);
+$ds->setWhoisParser($instanceOfMyParser, 'mytld')
 ```
