@@ -17,7 +17,7 @@ class DomainExpirationFetcher
     protected $parsers = [];
 
     const TLDS_WITH_NO_INFO = ['de', 'eu', 'at', 'bg', 'cy', 'es', 'gr', 'hu', 'ch',
-        'be', 'lu', 'lv', 'ph', 'no', 'name', 'kz', 'ge', 'az'];
+                                'be', 'lu', 'lv', 'ph', 'no', 'name', 'kz', 'ge', 'az'];
 
     public function canFetchInfoAbout($tld){
         return !in_array($tld, static::TLDS_WITH_NO_INFO);
@@ -52,9 +52,9 @@ class DomainExpirationFetcher
         $className = 'BiteIT\\Utils\\Parsers\\'.$tld.'WhoisInfoParser';
         if(!class_exists($className))
         {
-            if (file_exists(__DIR__ . '/Parsers' . $tld . 'WhoisInfoParser.php'))
+            if (file_exists(__DIR__ . '/Parsers/' . $tld . 'WhoisInfoParser.php'))
             {
-                require_once __DIR__ . '/Parsers' . $tld . 'WhoisInfoParser.php';
+                require_once __DIR__ . '/Parsers/' . $tld . 'WhoisInfoParser.php';
             }
         }
 

@@ -18,10 +18,14 @@ class GeneralWhoisInfoParser extends WhoisInfoParser
 
         $match = null;
         if($matches){
+
             if(is_array($matches[2])){
                 foreach ($matches[0] as $i => $text){
                     if(stripos($text, 'date') !== false)
+                    {
                         $match = $matches[2][$i];
+                        break;
+                    }
                 }
 
                 if(!$match)
