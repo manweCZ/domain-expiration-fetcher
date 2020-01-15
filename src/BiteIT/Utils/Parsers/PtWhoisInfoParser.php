@@ -14,7 +14,7 @@ class PtWhoisInfoParser extends WhoisInfoParser
         preg_match('/Expiration Date: (\d{2})\/(\d{2})\/(\d{4})/i', $text, $matches);
 
         if($matches){
-            return new \DateTime( $matches[1].'.'.$matches[1].'.'.$matches[2] );
+            return new \DateTime( $matches[2].'.'.$matches[1].'.'.$matches[3] );
         }
 
         return null;
