@@ -11,10 +11,7 @@ class PlWhoisInfoParser extends WhoisInfoParser
 
     public function parseText($text): ?\DateTime
     {
-        vd($text);
         preg_match('/renew.*?:\s*([^\n]+)/i', $text, $matches);
-
-        vd($matches);
 
         if($matches){
             list($date, $time) = explode(' ', trim($matches[1]));
